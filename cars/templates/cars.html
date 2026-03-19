@@ -2,7 +2,9 @@
     <head>
         <title>Carros novos</title>
     </head>
-    <body>
-        <h1>Aqui voce encontra os carros mais novos da região</h1>
-    </body>
+    {% block content %}
+        <body>
+            <h3>{{ cars.model }}</h3>
+        </body>
+    {% endblock %}
 </html>
