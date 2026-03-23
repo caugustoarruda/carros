@@ -1,5 +1,6 @@
 from django import forms
 from cars.models import Brand, Car
+from django.core.exceptions import ValidationError
 
 
 # class CarForm(forms.Form):
@@ -28,3 +29,10 @@ class CarModelForm(forms.ModelForm):
     class Meta:
         model = Car
         fields = '__all__'
+
+    def clean_value(self):
+        value = self.cleaned_data.get('value')
+        if value < 20000:
+            print('Entrou no if')
+            self.add_error('value','Nao e possivel cadastrar carros com valor menor que R$ 20.000')
+        return value
