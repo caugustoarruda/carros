@@ -7,7 +7,7 @@ def register_view(request):
         user_form = UserCreationForm(request.POST)
         if user_form.is_valid():
             user_form.save()
-            return redirect('cars_list')
+            return redirect('login')
         else:
             return render(
                 request,
