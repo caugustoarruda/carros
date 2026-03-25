@@ -1,4 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -24,7 +25,18 @@ def register_view(request):
         )
     
 def login_view(request):
-    login_form = AuthenticationForm()
-    return render(
-        request, 'login.html', {'login_form': login_form}
-    )
+    if request.method == 'POST':
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        if user is not None:
+            login(request, user)
+            return redirect('cars_list')
+        else:
+            login_form = AuthenticationForm()
+            return render(
+                request, 'login.html', {'login_form': login_form}
+            )
+    else:
+        login_form = AuthenticationForm()
+        return render(
+            request, 'login.html', {'login_form': login_form}
+        )
