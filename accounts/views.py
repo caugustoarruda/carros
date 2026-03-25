@@ -7,8 +7,15 @@ def register_view(request):
         user_form = UserCreationForm(request.POST)
         if user_form.is_valid():
             user_form.save()
-            redirect('login')
+            return redirect('cars_list')
+        else:
+            return render(
+                request,
+                'register.html',
+                {'user_form': user_form}
+            )
     else:
+        print("caiu no else")
         user_form = UserCreationForm()
         return render(
             request,
