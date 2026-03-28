@@ -17,9 +17,9 @@ class CarsView(View):
             template_name='cars.html',
             context={'cars': cars}
         )
-    
-def new_car_view(request):
-    if request.method == "POST":
+      
+class NewCarView(View):
+    def post(self, request):
         new_car_form = CarModelForm(request.POST, request.FILES)
         if new_car_form.is_valid():
             new_car_form.save()
@@ -30,7 +30,8 @@ def new_car_view(request):
                 {'new_car_form': new_car_form}
             )
         return redirect('cars_list')
-    else:
+    
+    def get(self, request):
         new_car_form = CarModelForm()
 
         return render(
