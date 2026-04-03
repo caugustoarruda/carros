@@ -49,7 +49,7 @@ class NewCarCreateView(CreateView):
     form_class = CarModelForm
     template_name = 'new_car.html'
     success_url = '/cars/'
-
+    
 
 class CarDetailView(DetailView):
     model = Car
