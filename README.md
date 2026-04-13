@@ -1,5 +1,5 @@
 
-# **`Documentação como executar o projeto Carros`**
+# **`Documentação do projeto Carros`**
 
 # Funcionalidades do projeto
 - `Funcionalidade 1`: Gerenciamento de Carros | CRUD completo
@@ -7,6 +7,7 @@
 
 <!-- # 📁 Acesso ao projeto
 **Indique como é possível baixar ou acessar o código fonte do projeto, seja projeto inicial ou final** -->
+
 # 🛠️ Abrir e rodar o projeto
 **Instruções necessárias executar o projeto**
 
@@ -23,11 +24,38 @@ python -m venv env ou source/bin/activate para ativar um ambiente virtual ja exi
 ```bash 
 pip install -r requirements.txt
 ```
+4. Tenha um gerenciador de banco de dados instalado ou utilize o sqlite, banco padrão adotado pelo Django
+
+5. O próximo passo será definir qual sera o banco de dados utilizado, alterando uma simples configuração no `settings` do projeto 
+
+   - vá na pasta app do projeto e procure por `settings.py`
+   - procure onde está a definição de banco de dados `DATABASES`
+   - e ai agora é so configurar com seu banco preferido seguindo os exemplos abaixo:
+
+   sqlite
+   ```py
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+   ```
+   postgres
+   ```py
+    DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql',
+          'NAME': 'NOME DO SEU BANCO',
+          'USER': 'USUARIO DO BANCO',
+          'PASSWORD': 'SENHA',
+          'HOST': 'localhost',
+          'PORT': '5432'
+      }
+    }
+   ```
 
 
 
-```py
-def cumprimentar(nome):  
-  retornar f"Olá, {nome}"
 
 
