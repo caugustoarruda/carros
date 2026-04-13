@@ -11,7 +11,7 @@
 # 🛠️ Abrir e rodar o projeto
 **Instruções necessárias executar o projeto**
 
-#### Partindo do pressuposto que já tenha o Python instalado
+#### Partindo do pressuposto que já tenha o Python instalado e um terminal para executar os comandos
 1. Clone the repo  
 ```bash 
 git clone https://github.com/caugustoarruda/carros 
@@ -54,7 +54,17 @@ pip install -r requirements.txt
       }
     }
    ```
+6. Seguindo, será necessário executar o comando migrate do Django, para que seja criado as tabelas necessárias para que a aplicação rode
+```py
+   python manage.py migrate
+```
+7. Se chegou até aqui, agora é so executar o comando para disponibilizar o projeto localmente
+```py
+   python manage.py runserver
+```
+se tudo ocorreu bem, você verá uma mensagem no terminal igual a mensagem abaixo
 
+![alt text](image.png)
 
 
 
