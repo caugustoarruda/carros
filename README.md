@@ -64,7 +64,7 @@ pip install -r requirements.txt
 ```
 se tudo ocorreu bem, você verá uma mensagem no terminal igual a mensagem abaixo
 
-![alt text](image.png)
+![alt text](media/image.png)
 
 
 
