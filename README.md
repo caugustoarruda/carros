@@ -82,4 +82,42 @@ Quando você se logar, terá como opção cadastrar novos veículos, mas para is
 ```
 ![alt text](media/cadastro_super.png)
 
+Com a criação do superuser com sucesso, você já consegue acessar a area admin do sistema digitando a url `127.0.0.1:8000/admin`
 
+![alt text](media/login_super.png)
+
+Ao se logar, você estará com acesso adminstrador e podera cadastra novas marcas(Brands) ou novos carros(Cars) bem como usuarios, grupo, deletar, editar, etc... conforme imagem abaixo:
+
+![alt text](media/tela_admin.png)
+
+2. Clique em Brands e crie uma nova Marca
+
+3. Dessa forma, você já pode acessar a tela de login com um usuario com perfil não admin ou se preferir admin e cadastrar seu primeiro carro
+
+![alt text](media/cadastro_carro.png)
+
+4. Cadastrando um novo carro, ele ira aparecer na listagem conforme abaixo:
+
+![alt text](media/argo.png)
+
+5. Agora você pode clicar no carro criado, e Editar, Deletar ou apenas ver os detalhes do mesmo
+
+![alt text](media/argo_detalhes.png)
+
+E com isso encerramos o fluxo, agora explore a Edição, Deleção, e note que na Bio foi preenchida uma informação aleatória gerada automaticamente, isso se deve, pelo fato que esta sendo utilizado um Signal pre-save, que complementa a informação caso o campo não seja preenchido. Mas esse signal pode usar integração com o GPT.
+Bastando por tanto para isso, procurar na pasta open_api pelo arquivo `client.py`, nesse arquivo você pode inserir sua credencial/token e se quiser alterar também o prompt que esta sendo utilizado.
+
+```py
+   def get_car_ai_bio(model, brand, year):
+    openai.api_key = 'SEUTOKENAQUI'
+
+    prompt = f"""
+    Me mostre um descrição de venda para o carro {model} {brand} {year} em apenas 250 caracteres. Fale coisas essenciais para venda.
+    """
+    respose = openai.completions.create(
+        model='davinci-002',
+        prompt=prompt,
+        max_tokens=1000,
+    )
+    return respose
+```
