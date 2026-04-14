@@ -66,6 +66,20 @@ se tudo ocorreu bem, você verá uma mensagem no terminal igual a mensagem abaix
 
 ![alt text](media/image.png)
 
+Pronto! Agora você já pode acessar a aplicação digitando o endereço informado no termial após executar o comando runserver
+`127.0.0.1:8000/cars`
 
+![alt text](media/tela_app.png)
+
+Agora você já pode se logar ou se cadastrar pela interface do navegador, basta preencher os dados e pronto!
+
+![alt text](media/tela_login.png)
+
+Quando você se logar, terá como opção cadastrar novos veículos, mas para isso ser possível você terá que cadastrar a marca do veículo e isso só é possível com superuser
+1. Para criar um super user, basta executar o comando abaixo e seguir os passos solicitados:
+```py
+   python manage.py createsuperuser
+```
+![alt text](media/cadastro_super.png)
 
 
